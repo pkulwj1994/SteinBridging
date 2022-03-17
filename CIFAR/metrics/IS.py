@@ -3,7 +3,7 @@ import functools
 import numpy as np
 import time
 from tensorflow.python.ops import array_ops
-from tensorflow.python.ops import functional_ops
+# from tensorflow.python.ops import functional_ops
 from scipy import misc
 
 '''
@@ -15,7 +15,7 @@ def inception_logits(tfgan, images, num_splits = 1):
     size = 299
     images = tf.image.resize_bilinear(images, [size, size])
     generated_images_list = array_ops.split(images, num_or_size_splits = num_splits)
-    logits = functional_ops.map_fn(
+    logits = tf.map_fn(
         fn = functools.partial(tfgan.eval.run_inception, output_tensor = 'logits:0'),
         elems = array_ops.stack(generated_images_list),
         parallel_iterations = 1,
