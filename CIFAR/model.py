@@ -55,25 +55,25 @@ class DCGAN():
         self.dim_channel = dim_channel
         self.lambda_p = lambda_p
 
-        self.gen_W1 = tf.get_variable(shape=[4,4,dim_W1, dim_z], name='gen_W1')
-        self.gen_W2 = tf.get_variable(shape=[4,4,dim_W2, dim_W1], name='gen_W2')
-        self.gen_W3 = tf.get_variable(shape=[4,4,dim_W3,dim_W2], name='gen_W3')
-        self.gen_W4 = tf.get_variable(shape=[4,4,dim_channel,dim_W3], name='gen_W4')
+        self.gen_W1 = tf.compact.v1.get_variable(shape=[4,4,dim_W1, dim_z], name='gen_W1')
+        self.gen_W2 = tf.compact.v1.get_variable(shape=[4,4,dim_W2, dim_W1], name='gen_W2')
+        self.gen_W3 = tf.compact.v1.get_variable(shape=[4,4,dim_W3,dim_W2], name='gen_W3')
+        self.gen_W4 = tf.compact.v1.get_variable(shape=[4,4,dim_channel,dim_W3], name='gen_W4')
 
-        self.dis2gen_W1 = tf.get_variable(shape=[4,4,dim_channel,dim_W3], name='dis2gen_W1')
-        self.dis2gen_W2 = tf.get_variable(shape=[4,4,dim_W3,dim_W2], name='dis2gen_W2')
-        self.dis2gen_W3 = tf.get_variable(shape=[4,4,dim_W2,dim_W1], name='dis2gen_W3')
-        self.dis2gen_W4 = tf.get_variable(shape=[4,4,dim_W1,1], name='dis2gen_W4')
+        self.dis2gen_W1 = tf.compact.v1.get_variable(shape=[4,4,dim_channel,dim_W3], name='dis2gen_W1')
+        self.dis2gen_W2 = tf.compact.v1.get_variable(shape=[4,4,dim_W3,dim_W2], name='dis2gen_W2')
+        self.dis2gen_W3 = tf.compact.v1.get_variable(shape=[4,4,dim_W2,dim_W1], name='dis2gen_W3')
+        self.dis2gen_W4 = tf.compact.v1.get_variable(shape=[4,4,dim_W1,1], name='dis2gen_W4')
 
-        self.est_W1 = tf.get_variable(shape=[4,4,dim_channel,dim_W3], name='est_W1')
-        self.est_W2 = tf.get_variable(shape=[4,4,dim_W3,dim_W2], name='est_W2')
-        self.est_W3 = tf.get_variable(shape=[4,4,dim_W2,dim_W1], name='est_W3')
-        self.est_W4 = tf.get_variable(shape=[4,4,dim_W1,128], name='est_W4')
+        self.est_W1 = tf.compact.v1.get_variable(shape=[4,4,dim_channel,dim_W3], name='est_W1')
+        self.est_W2 = tf.compact.v1.get_variable(shape=[4,4,dim_W3,dim_W2], name='est_W2')
+        self.est_W3 = tf.compact.v1.get_variable(shape=[4,4,dim_W2,dim_W1], name='est_W3')
+        self.est_W4 = tf.compact.v1.get_variable(shape=[4,4,dim_W1,128], name='est_W4')
 
-        self.dis2est_W1 = tf.get_variable(shape=[4,4,dim_channel,dim_W3], name='dis2est_W1')
-        self.dis2est_W2 = tf.get_variable(shape=[4,4,dim_W3,dim_W2], name='dis2est_W2')
-        self.dis2est_W3 = tf.get_variable(shape=[4,4,dim_W2,dim_W1], name='dis2est_W3')
-        self.dis2est_W4 = tf.get_variable(shape=[4,4,dim_W1,1], name='dis2est_W4')
+        self.dis2est_W1 = tf.compact.v1.get_variable(shape=[4,4,dim_channel,dim_W3], name='dis2est_W1')
+        self.dis2est_W2 = tf.compact.v1.get_variable(shape=[4,4,dim_W3,dim_W2], name='dis2est_W2')
+        self.dis2est_W3 = tf.compact.v1.get_variable(shape=[4,4,dim_W2,dim_W1], name='dis2est_W3')
+        self.dis2est_W4 = tf.compact.v1.get_variable(shape=[4,4,dim_W1,1], name='dis2est_W4')
 
 
     def build_model(self):
