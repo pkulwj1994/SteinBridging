@@ -12,7 +12,7 @@ def unpickle(file):
         dict = pickle.load(fo, encoding='bytes')
     return dict
 
-def cifar10(data_dir = '/home/wuiron/Joint/data/cifar'):
+def cifar10(data_dir = 'cifar-10-batches-py'):
     for k in range(1,6):
         train = unpickle(data_dir+'/data_batch_{}'.format(k))
         train_raw = train[b'data']
