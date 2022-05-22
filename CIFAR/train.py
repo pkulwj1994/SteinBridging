@@ -11,12 +11,12 @@ import time
 import logging
 logging.basicConfig(level=logging.INFO, filename='new_max_tanh.log', format='%(message)s')
 
-flags = tf.app.flags
-flags.DEFINE_string("gpus", "0", "gpus")
-FLAGS = flags.FLAGS
+# flags = tf.app.flags
+# flags.DEFINE_string("gpus", "0", "gpus")
+# FLAGS = flags.FLAGS
 
-print(FLAGS.gpus)
-os.environ["CUDA_VISIBLE_DEVICES"] = FLAGS.gpus
+# print(FLAGS.gpus)
+# os.environ["CUDA_VISIBLE_DEVICES"] = FLAGS.gpus
 
 from metrics.metric import *
 
