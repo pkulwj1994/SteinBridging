@@ -27,7 +27,7 @@ def cifar10(data_dir = 'cifar-10-batches-py'):
 
     return trX
 
-def cifar100(data_dir = '/home/wuiron/Joint/data/cifar'):
+def cifar100(data_dir = 'cifar-100-batches-py'):
     train = unpickle(data_dir+'/train')
     train_raw = train[b'data']
     trX = train_raw.reshape(-1,3,32,32)
